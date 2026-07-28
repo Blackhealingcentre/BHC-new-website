@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Shop - Black Healing Centre</title>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--surface-page); font-family: var(--font-sans); }
+    a { color: var(--bhc-terracotta); }
+    a:hover { color: var(--bhc-espresso); }
+  </style>
+</helmet>
+<dc-import name="Header" active-page="Shop" hint-size="100%,72px"></dc-import>
+
+<main>
+  <section style="background: var(--surface-inverse); color: var(--text-on-dark); position: relative; overflow: hidden; min-height: 560px; display: flex; align-items: center;" data-screen-label="Shop coming soon">
+    <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 1 }}" color="Fern" size="{{ 320 }}" base="assets/illustrations/svg" style="position: absolute; left: -60px; top: -40px; opacity: 0.18;" hint-size="320px,320px"></x-import>
+    <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 9 }}" color="Terracotta" size="{{ 200 }}" base="assets/illustrations/svg" style="position: absolute; right: -30px; bottom: -30px; opacity: 0.15;" hint-size="200px,200px"></x-import>
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 80px 28px; text-align: center; position: relative; z-index: 1;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="sun" hint-size="auto,32px">BHC shop</x-import>
+      <h1 style="margin: 22px 0 0; font-family: var(--font-sans); font-weight: 700; font-size: clamp(30px, 6.5vw, 48px); line-height: 1.08; color: var(--bhc-ivory);">
+        Something <span style="font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--bhc-sun);">rooted</span> is coming.
+      </h1>
+      <p style="margin: 22px auto 40px; max-width: 50ch; font-size: 17px; line-height: 1.7; color: rgba(255,251,242,0.6);">
+        We're building a shop that reflects what we believe: that community care can be worn, shared, and practised every day. Apparel, resources, and goods made with intention.
+      </p>
+
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 46px;">
+        <sc-for list="{{ items }}" as="i" hint-placeholder-count="4">
+          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="card" hint-size="180px,220px" style="width:180px; background: rgba(255,251,242,0.06); border: 1px solid rgba(255,251,242,0.1);">
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ i.v }}" color="{{ i.color }}" size="{{ 60 }}" base="assets/illustrations/svg" hint-size="60px,60px"></x-import>
+            <h5 style="margin: 14px 0 2px; font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 15px; color: var(--bhc-ivory);">{{ i.name }}</h5>
+            <p style="margin: 0; font-size: 12px; color: rgba(255,251,242,0.4);">{{ i.desc }}</p>
+          </x-import>
+        </sc-for>
+      </div>
+
+<iframe name="shop-mc-hidden-frame" title="mailchimp" style="display: none;"></iframe>
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="raised" padding="36px" hint-size="480px,220px" style="max-width: 480px; margin: 0 auto; background: rgba(255,251,242,0.06); border: 1px solid rgba(255,251,242,0.1);">
+        <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
+          <p style="font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--bhc-sun); margin: 0;">You're on the list. We'll be in touch.</p>
+        </sc-if>
+        <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
+          <form action="{{ mailchimpAction }}" method="post" target="shop-mc-hidden-frame" onSubmit="{{ onSubmit }}">
+            <h3 style="margin: 0 0 6px; font-family: var(--font-sans); font-weight: 700; font-size: 20px; color: var(--bhc-ivory);">Be the first to know.</h3>
+            <p style="margin: 0 0 18px; font-size: 13px; color: rgba(255,251,242,0.5); line-height: 1.6;">Drop your email and we'll reach out when the shop is live, before anyone else.</p>
+            <div style="display: flex; gap: 8px;">
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Input" name="EMAIL" type="email" placeholder="you@example.com" value="{{ email }}" onChange="{{ onEmailChange }}" style="background: rgba(255,251,242,0.9);" hint-size="1fr,44px"></x-import>
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="primary" hint-size="120px,44px">Notify me</x-import>
+            </div>
+          </form>
+        </sc-if>
+      </x-import>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,340px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// Same Mailchimp audience as the footer newsletter — replace with your real
+// embedded-form action URL (Audience > Signup forms > Embedded forms).
+const MAILCHIMP_ACTION = "https://blackhealingcentre.us20.list-manage.com/subscribe/post?u=5c75979b314dd49ce248fc8a5&id=09fd46671b&f_id=003e02eef0";
+
+class Component extends DCLogic {
+  state = { email: "", joined: false };
+  renderVals() {
+    const items = [
+      { v: 1, color: "Fern", name: "BHC Tote", desc: "Carry something rooted" },
+      { v: 2, color: "Terracotta", name: "Healing Journal", desc: "Guided reflection prompts" },
+      { v: 6, color: "Sun", name: "BHC Crewneck", desc: "Fern colourway · limited" },
+      { v: 8, color: "Sky", name: "Community Care Guide", desc: "Digital resource" },
+    ];
+    const onSubmit = () => {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) return false;
+      setTimeout(() => this.setState({ joined: true }), 300);
+    };
+    return {
+      items,
+      mailchimpAction: MAILCHIMP_ACTION,
+      email: this.state.email,
+      joined: this.state.joined,
+      notJoined: !this.state.joined,
+      onEmailChange: (e) => this.setState({ email: e.target.value }),
+      onSubmit,
+    };
+  }
+}
+</script>
+</body>
+</html>

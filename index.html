@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Black Healing Centre - Belonging as medicine</title>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; background: var(--surface-page); font-family: var(--font-sans); }
+    a { color: var(--bhc-terracotta); }
+    a:hover { color: var(--bhc-espresso); }
+  </style>
+</helmet>
+<dc-import name="Header" active-page="Home" hint-size="100%,72px"></dc-import>
+
+<main>
+  <section style="background: var(--surface-page); overflow: hidden;" data-screen-label="Hero">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 72px 28px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
+      <div>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="sun" hint-size="auto,32px">Montréal · Est. 2022</x-import>
+        <h1 style="margin: 22px 0 0; font-family: var(--font-sans); font-weight: 700; font-size: clamp(34px, 8vw, 60px); line-height: 1.04; letter-spacing: -0.03em; color: var(--text-strong);">
+          Belonging as <span style="font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--text-accent);">medicine.</span><br>
+          Care as <span style="font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--text-accent);">community.</span>
+        </h1>
+        <p style="margin: 24px 0 0; max-width: 48ch; font-size: 19px; line-height: 1.65; color: var(--text-body);">
+          The Black Healing Centre creates culturally affirming spaces where Black communities can heal, connect, and build collective power. Not in isolation. In relationship.
+        </p>
+        <div style="display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap;">
+          <a href="Programs.dc.html" style="text-decoration: none;"><x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="primary" size="lg" hint-size="200px,52px">Explore programs</x-import></a>
+          <a href="Donate.dc.html" style="text-decoration: none;"><x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="outline" size="lg" hint-size="200px,52px">Support our work</x-import></a>
+        </div>
+      </div>
+      <div style="position: relative; height: 380px; display: flex; align-items: center; justify-content: center;">
+        <div style="position: absolute; width: 320px; height: 320px; border-radius: 50%; background: var(--bhc-blossom); right: 10px;"></div>
+        <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: var(--bhc-water); left: 0; top: 20px;"></div>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 1 }}" color="Terracotta" size="{{ 300 }}" base="assets/illustrations/svg" style="position: relative; z-index: 1;" hint-size="300px,300px"></x-import>
+      </div>
+    </div>
+    <div style="max-width: var(--container-lg); margin: 20px auto 0; padding: 0 28px 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px;">
+      <sc-for list="{{ heroStats }}" as="s" hint-placeholder-count="3">
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="raised" hint-size="100%,110px">
+          <div style="font-family: var(--font-sans); font-weight: 700; font-size: 34px; color: var(--text-accent);">{{ s.n }}</div>
+          <div style="font-size: 13px; letter-spacing: 0.04em; color: var(--text-muted); margin-top: 4px;">{{ s.l }}</div>
+        </x-import>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-fern); color: var(--text-on-dark);" data-screen-label="Mission">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; align-items: center;">
+      <div>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="butter" hint-size="auto,32px">Our mission</x-import>
+        <h2 style="margin: 20px 0 0; font-family: var(--font-sans); font-weight: 700; font-size: 38px; line-height: 1.15; color: var(--bhc-ivory);">
+          Strengthening what <span style="font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--bhc-butter);">already exists</span> within us.
+        </h2>
+        <p style="margin: 22px 0 0; color: rgba(255,251,242,0.75); font-size: 16px; line-height: 1.75;">
+          BHC creates and sustains culturally affirming spaces where Black communities in Montréal can heal, connect, and build collective power. We cultivate environments where the resilience, creativity, and leadership within Black communities can thrive.
+        </p>
+        <p style="margin: 14px 0 0; color: rgba(255,251,242,0.75); font-size: 16px; line-height: 1.75;">
+          We provide accessible, community-led healing practices, leadership development, and spaces for dialogue and solidarity: resources that strengthen what already exists, rather than positioning the community as a deficit to be fixed.
+        </p>
+        <div style="display: flex; justify-content: {{ learnMoreAlign }}; margin-top: 26px;"><a href="About.dc.html" style="text-decoration: none; display: inline-block;"><x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="secondary" hint-size="auto,44px">Learn more about us</x-import></a></div>
+      </div>
+      <div style="position: relative; height: 320px; display: flex; align-items: center; justify-content: center;">
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 4 }}" color="Butter" size="{{ 260 }}" base="assets/illustrations/svg" hint-size="260px,260px"></x-import>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Pillars">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="What we do" title="Four interconnected" accent="pillars of care." size="lg" hint-size="auto,100px"></x-import>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 40px;">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+          <a href="{{ p.href }}" style="text-decoration: none; display: block; cursor: pointer; transition: transform .18s, box-shadow .18s;" style-hover="transform: translateY(-3px);">
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="card" hint-size="100%,220px">
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ p.v }}" color="{{ p.color }}" size="{{ 48 }}" base="assets/illustrations/svg" hint-size="48px,48px"></x-import>
+              <h3 style="margin: 14px 0 8px; font-family: var(--font-sans); font-weight: 700; font-size: 17px; color: var(--text-strong);">{{ p.title }}</h3>
+              <p style="margin: 0; color: var(--text-muted); font-size: 14px; line-height: 1.6;">{{ p.body }}</p>
+              <div style="margin-top: 12px; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--text-accent);">
+                Learn more <span aria-hidden="true">→</span>
+              </div>
+            </x-import>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Gallery">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 0 28px 80px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="In the space" title="Moments from our" accent="community." size="lg" hint-size="auto,100px"></x-import>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 32px; max-width: 640px; margin-left: auto; margin-right: auto;">
+        <image-slot id="home-photo-1" placeholder="Community gathering" shape="rounded" radius="20" style="width:100%;height:220px;"></image-slot>
+        <image-slot id="home-photo-2" placeholder="Healing circle" shape="rounded" radius="20" style="width:100%;height:220px;"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-card);" data-screen-label="Voices">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="Community voices" title="Heard from the" accent="people we serve." size="lg" hint-size="auto,100px"></x-import>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 40px;">
+        <div style="--text-3xl: 19px; height: 300px; display: flex;">
+          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Quote" attribution="{{ quotes.0.attr }}" tone="fern" hint-size="100%,300px">{{ quotes.0.text }}</x-import>
+        </div>
+        <div style="--text-3xl: 19px; height: 300px; display: flex; background: var(--bhc-sun); color: var(--text-strong); border-radius: var(--radius-lg); padding: var(--space-7); box-sizing: border-box;">
+          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Quote" attribution="{{ quotes.1.attr }}" tone="plain" hint-size="100%,300px">{{ quotes.1.text }}</x-import>
+        </div>
+        <div style="--text-3xl: 19px; height: 300px; display: flex;">
+          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Quote" attribution="{{ quotes.2.attr }}" tone="terracotta" hint-size="100%,300px">{{ quotes.2.text }}</x-import>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-inverse); color: var(--text-on-dark);" data-screen-label="Impact">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="sun" hint-size="auto,32px">Impact</x-import>
+      <h2 style="margin: 20px 0 0; font-family: var(--font-sans); font-weight: 700; font-size: 38px; color: var(--bhc-ivory);">Three years of <span style="font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--bhc-sun);">sustained growth.</span></h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 36px;">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+          <div style="border: 1px solid rgba(255,251,242,0.12); border-radius: var(--radius-lg); padding: 24px;">
+            <div style="font-family: var(--font-sans); font-weight: 700; font-size: 32px; color: var(--bhc-sun);">{{ s.n }}</div>
+            <div style="font-size: 13px; line-height: 1.5; color: rgba(255,251,242,0.6); margin-top: 8px;">{{ s.l }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
+        <sc-for list="{{ tocs }}" as="t" hint-placeholder-count="3">
+          <div style="background: rgba(255,251,242,0.04); border: 1px solid rgba(255,251,242,0.08); border-radius: var(--radius-lg); padding: 20px;">
+            <h4 style="margin: 0 0 6px; font-family: var(--font-sans); font-weight: 700; font-size: 15px; color: var(--bhc-sun);">{{ t.h }}</h4>
+            <p style="margin: 0; font-size: 13px; line-height: 1.55; color: rgba(255,251,242,0.5);">{{ t.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-card);" data-screen-label="Partners">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 70px 28px; text-align: center;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="Partners & funders" title="Built with trust," accent="sustained by community." size="lg" align="center" hint-size="auto,100px"></x-import>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 30px;">
+        <sc-for list="{{ partners }}" as="p" hint-placeholder-count="13">
+          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="espresso" variant="outline" hint-size="auto,32px">{{ p }}</x-import>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,340px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;learnMoreAlign&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;flex-start&quot;, &quot;options&quot;: [&quot;flex-start&quot;, &quot;center&quot;, &quot;flex-end&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Mission&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const learnMoreAlign = this.props.learnMoreAlign ?? "flex-start";
+    const heroStats = [
+      { n: "$450K+", l: "Raised" },
+      { n: "300+", l: "Participants / year" },
+      { n: "11+", l: "Partners" },
+    ];
+    const pillars = [
+      { v: 2, color: "Fern", title: "Healing & Psychosocial Care", body: "Group therapy, peer support circles, somatic workshops and restorative gatherings, in community, not isolation.", href: "AccessSupport.dc.html" },
+      { v: 7, color: "Sky", title: "Practitioner Development", body: "Training intensives, retreats and peer learning for Black therapists, facilitators and healers.", href: "CCP.dc.html" },
+      { v: 9, color: "Sun", title: "Spacemaking as Infrastructure", body: "The physical space generates networks of trust, solidarity and shared leadership. It is the foundation.", href: "Partner.dc.html" },
+      { v: 5, color: "Terracotta", title: "Leadership & Community Capacity", body: "Co-design, peer mentorship and dialogue. Participants are contributors and decision-makers, not just recipients.", href: "BecomeCCP.dc.html" },
+    ];
+    const quotes = [
+      { text: "\u201cI've gone to seek wellness services and always carried tension in my body. At BHC, I enter and I feel at home.\u201d", attr: "BHC community member" },
+      { text: "\u201cIt lets people disconnected from their culture of origin reconnect with wisdom, practices, and history, to feel whole and rooted.\u201d", attr: "BHC community member" },
+      { text: "\u201cA whole generation grew up knowing their mental health mattered, and knowing that changed everything for how they show up.\u201d", attr: "Long-term community vision" },
+    ];
+    const stats = [
+      { n: "$450K+", l: "Raised in philanthropic and institutional funding" },
+      { n: "300-400", l: "Participants engaged annually through programming" },
+      { n: "75%", l: "Report reduced stress and improved emotional regulation" },
+      { n: "11+", l: "Funding partners, many with multi-year commitments" },
+    ];
+    const tocs = [
+      { h: "Short term", body: "Individuals access affirming care: reduced stress and improved emotional regulation, greater sense of connection and belonging, low-barrier entry for those avoiding traditional services." },
+      { h: "Medium term", body: "Communities build capacity: trained Community Care Practitioners extend care beyond BHC's walls, increased community trust in mental health support, participants become co-creators and peer leaders." },
+      { h: "Long term", body: "Systems become more responsive: institutions adopt community-informed approaches, research findings influence service design, BHC's model recognized as replicable infrastructure." },
+    ];
+    const partners = ["Gouvernement du Québec", "Government of Canada", "Lululemon", "CHSSN", "SHIFT Centre for Social Transformation", "Concordia University", "McConnell Foundation", "Pathy Foundation", "Foundation for Black Communities", "Groupe 3737", "Lawson Foundation", "Elizabeth House", "SRQEA", "DESTA", "*CDNBCA", "ACDPN", "BCRC"];
+    return { heroStats, pillars, quotes, stats, tocs, partners, learnMoreAlign };
+  }
+}
+</script>
+</body>
+</html>

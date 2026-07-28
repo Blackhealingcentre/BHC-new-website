@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Access Support - Black Healing Centre</title>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--surface-page); font-family: var(--font-sans); }
+    a { color: var(--bhc-terracotta); }
+    a:hover { color: var(--bhc-espresso); }
+  </style>
+</helmet>
+<dc-import name="Header" active-page="Programs" hint-size="100%,72px"></dc-import>
+
+<main>
+  <section style="background: var(--surface-fern); color: var(--text-on-dark); position: relative; overflow: hidden;" data-screen-label="Access support hero">
+    <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 2 }}" color="Butter" size="{{ 240 }}" base="assets/illustrations/svg" style="position: absolute; right: -40px; bottom: -40px; opacity: 0.22;" hint-size="240px,240px"></x-import>
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 90px 28px 70px; position: relative; z-index: 1;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="butter" hint-size="auto,32px">Healing & psychosocial support</x-import>
+      <h1 style="margin: 22px 0 0; max-width: 16ch; font-family: var(--font-sans); font-weight: 700; font-size: clamp(30px, 6vw, 46px); line-height: 1.1; letter-spacing: -0.03em; color: var(--bhc-ivory);">
+        Cost is never <span style="display: block; font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--bhc-butter); font-size: clamp(30px, 6.5vw, 48px);">the barrier.</span>
+      </h1>
+      <p style="margin: 22px 0 0; max-width: 56ch; font-size: 17px; line-height: 1.7; color: rgba(255,251,242,0.75);">
+        Every program is sliding-scale or fully subsidized. Tell us a little about what you're looking for and we'll reach out to match you with the right support. No one is turned away.
+      </p>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Waitlist form">
+    <div style="max-width: 620px; margin: 0 auto; padding: 60px 28px 100px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="raised" padding="40px" hint-size="100%,560px">
+        <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align: center;">
+            <h2 style="font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--text-accent); font-size: 32px; margin: 0 0 10px;">You're on the list.</h2>
+            <p style="color: var(--text-muted); max-width: 46ch; margin: 0 auto;">Thank you for reaching out. A member of our team will contact you within 5–7 business days to talk through next steps. You are welcome here.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <h2 style="font-family: var(--font-sans); font-weight: 700; font-size: 24px; margin: 0 0 4px; color: var(--text-strong);">Join the care waitlist</h2>
+            <p style="margin: 0 0 22px; color: var(--text-muted); font-size: 14px;">Share what you're looking for, as much or as little as feels right.</p>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Input" label="Full name" placeholder="Your name" value="{{ name }}" onChange="{{ onNameChange }}" hint-size="100%,68px"></x-import>
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Input" label="Email" type="email" placeholder="you@example.com" value="{{ email }}" onChange="{{ onEmailChange }}" hint-size="100%,68px"></x-import>
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Input" label="Phone (optional)" type="tel" placeholder="For text or call follow-up" value="{{ phone }}" onChange="{{ onPhoneChange }}" hint-size="100%,68px"></x-import>
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Select" label="What are you looking for?" options="{{ needs }}" value="{{ need }}" onChange="{{ onNeedChange }}" hint-size="100%,68px"></x-import>
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Select" label="Preferred contact method" options="{{ contactMethods }}" value="{{ contactMethod }}" onChange="{{ onContactMethodChange }}" hint-size="100%,68px"></x-import>
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Textarea" label="Anything you'd like us to know" placeholder="Availability, accessibility needs, what's bringing you here, whatever feels useful to share." value="{{ notes }}" onChange="{{ onNotesChange }}" hint-size="100%,110px"></x-import>
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Checkbox" label="I consent to BHC reaching out via email or phone about accessing support." checked="{{ consent }}" onChange="{{ onConsentChange }}" hint-size="auto,40px"></x-import>
+              <sc-if value="{{ formError }}" hint-placeholder-val="{{ false }}">
+                <p style="margin: 0; font-size: 13px; color: var(--danger, #B3261E);">{{ formError }}</p>
+              </sc-if>
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="primary" full="{{ true }}" disabled="{{ sending }}" onClick="{{ join }}" hint-size="100%,48px">{{ joinLabel }}</x-import>
+              <p style="margin: 0; font-size: 12px; color: var(--text-muted); text-align: center;">Prefer to talk it through first? <a href="Contact.dc.html">Contact us directly →</a></p>
+            </div>
+          </div>
+        </sc-if>
+      </x-import>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,340px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// Email forwarding via Formspree — forwards to info@blackhealingcentre.com.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xaqrddgz";
+
+class Component extends DCLogic {
+  state = {
+    name: "", email: "", phone: "", need: "", contactMethod: "", notes: "", consent: false,
+    sending: false, done: false, formError: null,
+  };
+
+  renderVals() {
+    const needs = [
+      { value: "", label: "Select one" },
+      { value: "therapy", label: "One-on-one therapy" },
+      { value: "circle", label: "A healing circle or peer support" },
+      { value: "workshop", label: "A workshop or somatic session" },
+      { value: "youth", label: "Youth programming" },
+      { value: "notsure", label: "Not sure yet, help me figure it out" },
+    ];
+    const contactMethods = [
+      { value: "", label: "Select one" },
+      { value: "email", label: "Email" },
+      { value: "phone", label: "Phone call" },
+      { value: "text", label: "Text message" },
+    ];
+
+    const join = async () => {
+      const { name, email, phone, need, contactMethod, notes, consent } = this.state;
+      if (!name.trim() || !email.trim()) {
+        this.setState({ formError: "Please fill in your name and email." });
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        this.setState({ formError: "Please enter a valid email address." });
+        return;
+      }
+      if (!consent) {
+        this.setState({ formError: "Please confirm consent before submitting." });
+        return;
+      }
+      this.setState({ sending: true, formError: null });
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            _subject: "New care waitlist submission: BHC website",
+            name, email, phone, need, preferred_contact_method: contactMethod, notes,
+          }),
+        });
+        if (!res.ok) throw new Error("Request failed");
+        this.setState({ done: true, sending: false });
+      } catch (err) {
+        this.setState({ sending: false, formError: "Something went wrong submitting the form. Please try again or contact us directly." });
+      }
+    };
+
+    return {
+      needs,
+      contactMethods,
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phone,
+      need: this.state.need,
+      contactMethod: this.state.contactMethod,
+      notes: this.state.notes,
+      consent: this.state.consent,
+      sending: this.state.sending,
+      joinLabel: this.state.sending ? "Submitting…" : "Join the waitlist",
+      formError: this.state.formError,
+      done: this.state.done,
+      notDone: !this.state.done,
+      onNameChange: (e) => this.setState({ name: e.target.value }),
+      onEmailChange: (e) => this.setState({ email: e.target.value }),
+      onPhoneChange: (e) => this.setState({ phone: e.target.value }),
+      onNeedChange: (e) => this.setState({ need: e.target.value }),
+      onContactMethodChange: (e) => this.setState({ contactMethod: e.target.value }),
+      onNotesChange: (e) => this.setState({ notes: e.target.value }),
+      onConsentChange: (e) => this.setState({ consent: e.target.checked }),
+      join,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+</helmet>
+<footer style="background: var(--surface-inverse); color: var(--text-on-dark);">
+  <div style="max-width: var(--container-lg); margin: 0 auto; padding: 64px 28px 40px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px;">
+      <div>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Logo" layout="stacked" color="Ivory" size="{{ 40 }}" base="assets/logo/svg" hint-size="140px,80px"></x-import>
+      </div>
+      <div>
+        <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bhc-sun); font-weight: 600; margin-bottom: 14px;">Programs</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="AccessSupport.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">Access support</a>
+          <a href="Programs.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">All programs</a>
+          <a href="CCP.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">CCP program</a>
+          <a href="Events.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">Events & booking</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bhc-sun); font-weight: 600; margin-bottom: 14px;">About</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="About.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">Our story</a>
+          <a href="About.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">Team</a>
+          <a href="Events.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">Events</a>
+          <a href="Contact.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bhc-sun); font-weight: 600; margin-bottom: 14px;">Support</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="Donate.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">Donate</a>
+          <a href="Partner.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">Host an event</a>
+          <a href="Shop.dc.html" style="color: var(--bhc-bone); text-decoration: none; font-size: 14px;">Shop</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bhc-sun); font-weight: 600; margin-bottom: 14px;">Stay in the loop</div>
+        <iframe name="mc-hidden-frame" title="mailchimp" style="display: none;"></iframe>
+        <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+          <p style="margin: 0; font-size: 13px; color: var(--bhc-bone); font-style: italic;">Thanks! Check your inbox to confirm.</p>
+        </sc-if>
+        <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+          <form action="{{ mailchimpAction }}" method="post" target="mc-hidden-frame" onSubmit="{{ onSubmit }}" style="display: flex; flex-direction: column; gap: 12px;">
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Input" name="EMAIL" type="email" placeholder="you@email.com" value="{{ email }}" onChange="{{ onEmailChange }}" style="background: var(--bhc-ivory);" hint-size="100%,44px"></x-import>
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="primary" size="sm" full="{{ true }}" hint-size="100%,40px">Subscribe</x-import>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+    <div style="margin-top: 48px; padding-top: 22px; border-top: 1.5px solid rgba(255,251,242,0.15); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--bhc-bone);">
+      <span>© 2026 Black Healing Centre. A community-built bridge to healing.</span>
+      <span>Montréal, Québec · Est. 2022</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const MAILCHIMP_ACTION = "https://blackhealingcentre.us20.list-manage.com/subscribe/post?u=5c75979b314dd49ce248fc8a5&id=09fd46671b&f_id=003e02eef0";
+
+class Component extends DCLogic {
+  state = { email: "", subscribed: false };
+
+  renderVals() {
+    const onSubmit = () => {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) return false;
+      setTimeout(() => this.setState({ subscribed: true }), 300);
+    };
+    return {
+      mailchimpAction: MAILCHIMP_ACTION,
+      email: this.state.email,
+      subscribed: this.state.subscribed,
+      notSubscribed: !this.state.subscribed,
+      onEmailChange: (e) => this.setState({ email: e.target.value }),
+      onSubmit,
+    };
+  }
+}
+</script>
+</body>
+</html>

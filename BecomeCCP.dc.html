@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Become a CCP - Cohort 2 - Black Healing Centre</title>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; background: var(--surface-page); font-family: var(--font-sans); }
+    a { color: var(--bhc-terracotta); }
+    a:hover { color: var(--bhc-espresso); }
+  </style>
+</helmet>
+<dc-import name="Header" active-page="Programs" hint-size="100%,72px"></dc-import>
+
+<main>
+  <section style="background: var(--surface-card); overflow: hidden; position: relative;" data-screen-label="Hero">
+    <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 1 }}" color="Fern" size="{{ 220 }}" base="assets/illustrations/svg" style="position: absolute; right: -30px; top: -20px; opacity: 0.9;" hint-size="220px,220px"></x-import>
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 90px 28px 60px; position: relative; z-index: 1;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="fern" hint-size="auto,32px">Cohort 2 · Applications open Aug 3, 2026</x-import>
+      <h1 style="margin: 22px 0 0; max-width: 20ch; font-family: var(--font-sans); font-weight: 700; font-size: clamp(30px, 6vw, 46px); line-height: 1.1; letter-spacing: -0.03em; color: var(--text-strong);">
+        Become a <span style="display: block; font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--text-accent); font-size: clamp(30px, 6.5vw, 48px);">Community Care Practitioner.</span>
+      </h1>
+      <p style="margin: 22px 0 0; max-width: 58ch; font-size: 18px; line-height: 1.65; color: var(--text-body);">
+        Cohort 2 of our Community Care Practitioners Training is a paid opportunity to train alongside Dr. Lisa Ndejuru and become a trusted mental health resource in our community. Here's everything you need to know before you apply.
+      </p>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-fern); color: var(--text-on-dark);" data-screen-label="Key facts">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 44px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 28px;">
+      <sc-for list="{{ keyFacts }}" as="f" hint-placeholder-count="4">
+        <div>
+          <div style="font-family: var(--font-sans); font-weight: 700; font-size: 22px; color: var(--bhc-butter);">{{ f.value }}</div>
+          <div style="margin-top: 4px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,251,242,0.75);">{{ f.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Timeline">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 70px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="Key dates" title="Application" accent="timeline." size="lg" hint-size="auto,100px"></x-import>
+      <ul style="list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 0;">
+        <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="4">
+          <li style="display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border-soft);">
+            <span style="color: var(--text-accent); flex-shrink: 0; font-weight: 700; min-width: 160px; font-size: 14px; letter-spacing: 0.02em;">{{ t.label }}</span>
+            <span style="font-size: 15px; line-height: 1.65; color: var(--text-body);">{{ t.detail }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Who can apply">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 70px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="Eligibility" title="Who can" accent="apply." size="lg" hint-size="auto,100px"></x-import>
+      <p style="margin: 22px 0 24px; font-size: 16px; line-height: 1.75; color: var(--text-body); max-width: 68ch;">
+        We welcome applications from anyone with a sincere interest in acquiring the skills to provide compassionate mental health support. This program is particularly suited for:
+      </p>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+        <sc-for list="{{ eligibility }}" as="e" hint-placeholder-count="5">
+          <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.6; color: var(--text-body);"><span style="color: var(--text-accent); flex-shrink: 0; font-weight: 700;">–</span>{{ e }}</li>
+        </sc-for>
+      </ul>
+      <p style="margin: 26px 0 0; font-size: 15px; line-height: 1.7; color: var(--text-muted);">Requirement: applicants should already have proficient active listening skills — this is foundational to the training and to engaging effectively with clients.</p>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-terracotta); color: var(--text-on-dark);" data-screen-label="Benefits">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 70px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="butter" hint-size="auto,32px">This is a paid training</x-import>
+      <h3 style="margin: 18px 0 6px; font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 30px; color: var(--bhc-ivory);">You'll be compensated for your time.</h3>
+      <p style="margin: 0 0 22px; font-size: 16px; line-height: 1.7; color: rgba(255,251,242,0.85); max-width: 62ch;">Admitted participants receive a $500 honorarium plus a paid internship, as a token of appreciation for their dedication and contributions, alongside these benefits:</p>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+        <sc-for list="{{ benefits }}" as="b" hint-placeholder-count="4">
+          <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.6; color: rgba(255,251,242,0.9);"><span style="color: var(--bhc-butter); flex-shrink: 0;">–</span>{{ b }}</li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Commitment">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 70px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="What to expect" title="Program" accent="structure & commitment." size="lg" hint-size="auto,100px"></x-import>
+      <ul style="list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 0;">
+        <sc-for list="{{ commitment }}" as="c" hint-placeholder-count="4">
+          <li style="display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border-soft);">
+            <span style="color: var(--text-accent); flex-shrink: 0; font-weight: 700; min-width: 140px; font-size: 14px; letter-spacing: 0.02em;">{{ c.label }}</span>
+            <span style="font-size: 15px; line-height: 1.65; color: var(--text-body);">{{ c.detail }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-card);" data-screen-label="Apply">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 80px 28px; text-align: center;">
+      <span style="font-family: var(--font-display); font-style: italic; font-size: 36px; line-height: 1.2; color: var(--text-accent);">Ready to apply to Cohort 2?</span>
+      <p style="margin: 18px 0 28px; color: var(--text-muted); font-size: 17px;">Applications are open August 3–21, 2026. Training begins October 8, 2026.</p>
+      <a href="{{ applyUrl }}" target="_blank" rel="noopener" style="text-decoration: none;"><x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="primary" size="lg" hint-size="240px,52px">Apply now</x-import></a>
+      <p style="margin: 16px 0 0; font-size: 13px; color: var(--text-muted);">Questions first? <a href="Contact.dc.html">Get in touch</a>.</p>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page); border-top: 1px solid var(--border-soft);" data-screen-label="Funder">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 40px 28px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; text-align: center;">
+      <p style="margin: 0; font-size: 14px; color: var(--text-muted);">This cohort was made possible by the support of the Government of Quebec.</p>
+      <img src="assets/logo/gouvernement-du-quebec.png" alt="Gouvernement du Québec" style="width: 160px; height: auto;">
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,340px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440}, &quot;applyUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://docs.google.com/forms/d/e/1FAIpQLSc3BB75ZkqOzbsXyDqcHvqPZ1LXISbvInfce98eavH5n_4qSw/viewform?usp=publish-editor&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Application&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const applyUrl = this.props.applyUrl ?? "https://docs.google.com/forms/d/e/1FAIpQLSc3BB75ZkqOzbsXyDqcHvqPZ1LXISbvInfce98eavH5n_4qSw/viewform?usp=publish-editor";
+    const keyFacts = [
+      { value: "Aug 3 – 21, 2026", label: "Application period" },
+      { value: "Oct 8, 2026", label: "Training begins" },
+      { value: "$500 + internship", label: "Honorarium" },
+      { value: "12 + 12 wks", label: "Training + internship" },
+    ];
+    const timeline = [
+      { label: "Applications", detail: "August 3 – August 21, 2026." },
+      { label: "Sorting out", detail: "August 24 – August 31, 2026." },
+      { label: "Interviews", detail: "September 7 – September 18, 2026." },
+      { label: "Notice of acceptance", detail: "September 23rd, 2026." },
+    ];
+    const eligibility = [
+      "Aspiring Black psychology, counselling, or social work students",
+      "Existing care or support providers (Faith Leaders, Special Education Teachers, etc.)",
+      "Students and practitioners in the fields of human relations and psycho-social support",
+      "Movement teachers seeking to expand their skill set",
+      "Holistic wellness practitioners committed to enhancing their practice",
+    ];
+    const benefits = [
+      "New knowledge about issues faced by Black communities",
+      "Tools to assist clients and participants",
+      "Practice new coaching skills within a supportive cohort",
+      "A trusted resource role within the community",
+    ];
+    const commitment = [
+      { label: "Weekly sessions", detail: "Wednesday evenings, 4–6pm, for the full training and internship period." },
+      { label: "Total duration", detail: "12-week training (Oct 8 – Dec 17, 2026, then Jan 14 – 28, 2027) followed by a 12-week supervised internship (March – May, 2027)." },
+      { label: "Post-training service", detail: "A minimum six-month commitment to community care service following the training." },
+      { label: "Language", detail: "Delivered primarily in English; facilitator is bilingual and welcomes participants expressing themselves in either language." },
+    ];
+    return { applyUrl, keyFacts, timeline, eligibility, benefits, commitment };
+  }
+}
+</script>
+</body>
+</html>

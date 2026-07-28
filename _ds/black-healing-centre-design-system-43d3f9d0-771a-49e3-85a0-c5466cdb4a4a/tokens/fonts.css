@@ -1,0 +1,33 @@
+/* BHC brand webfonts */
+
+/* Poppins — primary brand font (headings + body) */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/Poppins-Bold.ttf") format("truetype");
+}
+
+/* Ramboia — expressive display italic, used for whimsical accents */
+@font-face {
+  font-family: "Ramboia";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/Ramboia-Italic.otf") format("opentype");
+}

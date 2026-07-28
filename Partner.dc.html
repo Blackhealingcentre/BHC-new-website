@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Host an Event - Black Healing Centre</title>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; background: var(--surface-page); font-family: var(--font-sans); }
+    a { color: var(--bhc-terracotta); }
+    a:hover { color: var(--bhc-espresso); }
+  </style>
+</helmet>
+<dc-import name="Header" active-page="Partner" hint-size="100%,72px"></dc-import>
+
+<main>
+  <section style="background: var(--surface-fern); color: var(--text-on-dark); position: relative; overflow: hidden;" data-screen-label="Partner hero">
+    <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 3 }}" color="Butter" size="{{ 240 }}" base="assets/illustrations/svg" style="position: absolute; right: -40px; bottom: -40px; opacity: 0.25;" hint-size="240px,240px"></x-import>
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 90px 28px 70px; position: relative; z-index: 1;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="butter" hint-size="auto,32px">Host an event</x-import>
+      <h1 style="margin: 22px 0 0; max-width: 16ch; font-family: var(--font-sans); font-weight: 700; font-size: clamp(30px, 6.5vw, 48px); line-height: 1.08; letter-spacing: -0.03em; color: var(--bhc-ivory);">
+        Bring your work into the <span style="display: block; font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--bhc-butter); font-size: clamp(32px, 7vw, 50px);">space.</span>
+      </h1>
+      <p style="margin: 22px 0 0; max-width: 56ch; font-size: 17px; line-height: 1.7; color: rgba(255,251,242,0.75);">
+        We see partnership as the beginning of a conversation. If your work connects to healing, connection, cultural grounding, or wellbeing, we'd love to hear from you. Not everything is a fit, and that's okay.
+      </p>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-card);" data-screen-label="Tiers">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="How we work with partners" title="A tiered approach that" accent="stays accessible." size="lg" hint-size="auto,100px"></x-import>
+      <p style="margin: 16px 0 0; max-width: 62ch; font-size: 15px; line-height: 1.75; color: var(--text-muted);">We don't operate with a single flat rental rate. Our approach reflects the nature of the offering, the facilitator's context, and overall capacity. You don't need to choose your tier perfectly, we'll determine that together.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 36px;">
+        <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="3">
+          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="{{ t.cardTone }}" hint-size="100%,320px">
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="{{ t.tone }}" hint-size="auto,28px">{{ t.badge }}</x-import>
+            <h4 style="margin: 14px 0 8px; font-family: var(--font-sans); font-weight: 700; font-size: 19px; color: {{ t.textColor }};">{{ t.title }}</h4>
+            <p style="margin: 0 0 14px; font-size: 14px; line-height: 1.65; color: {{ t.bodyColor }};">{{ t.body }}</p>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{ t.points }}" as="pt" hint-placeholder-count="3">
+                <li style="font-size: 13px; color: {{ t.bodyColor }}; display: flex; gap: 8px;"><span style="color: var(--text-accent); flex-shrink: 0;">–</span>{{ pt }}</li>
+              </sc-for>
+            </ul>
+          </x-import>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Start conversation">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 80px 28px; text-align: center;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="Partner inquiry" title="Start the" accent="conversation." size="lg" align="center" hint-size="auto,100px"></x-import>
+      <p style="margin: 16px auto 26px; max-width: 56ch; font-size: 15px; line-height: 1.7; color: var(--text-muted);">Tell us a bit about yourself, your offering, and what draws you to BHC specifically. This is the beginning of a conversation, not a booking confirmation.</p>
+      <a href="Contact.dc.html" style="text-decoration: none;"><x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="primary" size="lg" hint-size="220px,52px">Send a partner inquiry</x-import></a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,340px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const tiers = [
+      { badge: "Community-based", tone: "fern", cardTone: "card", textColor: "var(--text-strong)", bodyColor: "var(--text-muted)", title: "Grassroots & emerging", body: "Community members, emerging practitioners, or facilitators offering sliding-scale or low-cost programming that's earlier-stage or experimental.", points: ["Lower or sliding-scale rental rate", "Or a small percentage of ticket sales", "Aligned, community-oriented offerings"] },
+      { badge: "Established practitioner", tone: "butter", cardTone: "espresso", textColor: "var(--text-on-dark)", bodyColor: "var(--bhc-bone)", title: "Structured & ongoing", body: "Therapists, coaches and workshop leaders with an established practice running structured, paid programming at standard market rates.", points: ["Standard rental rate", "Or a moderate percentage of ticket sales", "Sliding-scale spots encouraged"] },
+      { badge: "External / organizational", tone: "terracotta", cardTone: "card", textColor: "var(--text-strong)", bodyColor: "var(--text-muted)", title: "Organizations & companies", body: "Organizations or groups hosting events less rooted in the immediate community, or coming with larger operational budgets.", points: ["Market-aligned rental rate", "Helps subsidize accessible community programming", "Values alignment still required"] },
+    ];
+    return { tiers };
+  }
+}
+</script>
+</body>
+</html>

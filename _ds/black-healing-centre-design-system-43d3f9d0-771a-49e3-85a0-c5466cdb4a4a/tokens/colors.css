@@ -1,0 +1,73 @@
+/* ==========================================================================
+   BHC — COLOUR TOKENS
+   Palette drawn verbatim from the Black Healing Centre Brand Guidelines.
+   Named after the logo-icon colourways. Warm, earthy, botanical, joyful.
+   ========================================================================== */
+:root {
+  /* ---- Palette (raw brand colours) ---------------------------------- */
+  --bhc-espresso:   #2E1308; /* darkest brown — primary ink */
+  --bhc-soil:       #5E4900; /* deep umber / brown-gold */
+  --bhc-terracotta: #A5593C; /* clay red-brown — primary accent */
+  --bhc-tangerine:  #F35326; /* hot orange */
+  --bhc-poppy:      #EC2B27; /* red */
+  --bhc-sun:        #FFC559; /* golden yellow */
+  --bhc-butter:     #FFF1A1; /* pale yellow */
+  --bhc-olive:      #8B801D; /* mustard-olive */
+  --bhc-moss:       #293D10; /* darkest green */
+  --bhc-fern:       #21602B; /* forest green — secondary accent */
+  --bhc-mint:       #DBF2C8; /* pale green */
+  --bhc-juniper:    #0B424C; /* deep teal */
+  --bhc-sky:        #71BDEC; /* mid blue */
+  --bhc-water:      #BDF3FF; /* pale blue */
+  --bhc-blossom:    #FFDFDF; /* pale pink */
+  --bhc-ivory:      #FFFBF2; /* off-white — primary page ground */
+  --bhc-bone:       #FBF1DD; /* warm cream — card / panel ground */
+  --bhc-black:      #000000;
+  --bhc-white:      #FFFFFF;
+
+  /* ---- Semantic aliases --------------------------------------------- */
+  /* Surfaces */
+  --surface-page:      var(--bhc-ivory);
+  --surface-card:      var(--bhc-bone);
+  --surface-raised:    var(--bhc-white);
+  --surface-inverse:   var(--bhc-espresso);
+  --surface-fern:      var(--bhc-fern);
+  --surface-terracotta:var(--bhc-terracotta);
+
+  /* Text */
+  --text-strong:    var(--bhc-espresso);
+  --text-body:      #3D2114;   /* espresso, softened for long-form */
+  --text-muted:     #6B4E3D;   /* warm brown grey */
+  --text-on-dark:   var(--bhc-ivory);
+  --text-accent:    var(--bhc-terracotta);
+
+  /* Primary / interactive */
+  --primary:          var(--bhc-terracotta);
+  --primary-hover:    #8F4A30;  /* terracotta, darkened */
+  --primary-press:    #7A3E28;
+  --on-primary:       var(--bhc-ivory);
+
+  --secondary:        var(--bhc-fern);
+  --secondary-hover:  #184A20;
+  --secondary-press:  #123A18;
+  --on-secondary:     var(--bhc-ivory);
+
+  /* Accents / highlights (whimsy) */
+  --accent-sun:     var(--bhc-sun);
+  --accent-poppy:   var(--bhc-poppy);
+  --accent-sky:     var(--bhc-sky);
+  --accent-blossom: var(--bhc-blossom);
+
+  /* Lines & borders */
+  --border-soft:    #E7D9BF;   /* cream-toned hairline */
+  --border-strong:  var(--bhc-espresso);
+
+  /* Semantic status (derived from palette) */
+  --success:  var(--bhc-fern);
+  --warning:  var(--bhc-sun);
+  --danger:   var(--bhc-poppy);
+  --info:     var(--bhc-juniper);
+
+  /* Focus */
+  --focus-ring: var(--bhc-terracotta);
+}

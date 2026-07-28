@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Events - Black Healing Centre</title>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <script src="https://app.arketa.co/scripts/embed.js"></script>
+  <style>
+    body { margin: 0; background: var(--surface-page); font-family: var(--font-sans); }
+    a { color: var(--bhc-terracotta); }
+    a:hover { color: var(--bhc-espresso); }
+  </style>
+</helmet>
+<dc-import name="Header" active-page="Events" hint-size="100%,72px"></dc-import>
+
+<main>
+  <section style="background: var(--surface-page);" data-screen-label="Events hero">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px 20px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="Calendar" title="Upcoming" accent="gatherings." size="xl" hint-size="auto,120px"></x-import>
+      <div style="margin-top: 20px; max-width: 60ch; padding: 16px 20px; background: var(--surface-card); border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+        <p style="margin: 0; font-size: 15px; color: var(--text-body); line-height: 1.6;">All sessions are <strong>sliding scale or free</strong>. No one is turned away. <a href="Donate.dc.html">Support access →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Calendar">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 30px 28px 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: start;">
+
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="raised" padding="8px" hint-size="380px,460px" style="overflow: hidden;">
+        <iframe id="sutraWidgetIframe" title="Black Healing Centre booking calendar" src="https://app.arketa.co/iframe/blackhealingcentre/calendar" width="100%" height="900" style="border: none; border-radius: var(--radius-md); display: block;" allow="payment;fullscreen" allowfullscreen="true"></iframe>
+      </x-import>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+          <h4 style="margin: 0; font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 20px; color: var(--text-strong);">{{ weekLabel }}</h4>
+          <div style="display: flex; gap: 8px;">
+            <button onClick="{{ prevWeek }}" style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border-soft); background: var(--surface-card); color: var(--text-strong); cursor: pointer; font-size: 16px; line-height: 1;">‹</button>
+            <button onClick="{{ nextWeek }}" style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border-soft); background: var(--surface-card); color: var(--text-strong); cursor: pointer; font-size: 16px; line-height: 1;">›</button>
+          </div>
+        </div>
+        <sc-for list="{{ monthEvents }}" as="e" hint-placeholder-count="4">
+          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="card" padding="18px 22px" hint-size="100%,116px" style="display: grid; grid-template-columns: 60px 1fr auto; gap: 18px; align-items: center;">
+            <div style="text-align: center;">
+              <div style="font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 26px; color: var(--text-accent); line-height: 1;">{{ e.day }}</div>
+              <div style="font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px;">{{ e.monthShort }}</div>
+            </div>
+            <div>
+              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="{{ e.tone }}" hint-size="auto,24px">{{ e.category }}</x-import>
+              <h4 style="margin: 8px 0 2px; font-family: var(--font-sans); font-weight: 700; font-size: 16px; color: var(--text-strong);">{{ e.title }}</h4>
+              <p style="margin: 0 0 4px; font-size: 13px; color: var(--text-body); line-height: 1.5;">{{ e.description }}</p>
+              <p style="margin: 0; font-size: 13px; color: var(--text-muted);">{{ e.time }} · {{ e.location }}</p>
+            </div>
+            <sc-if value="{{ showBookingCta }}" hint-placeholder-val="{{ true }}">
+              <a href="https://app.arketa.co/black-healing-centre" target="_blank" rel="noopener" style="text-decoration: none;">
+                <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="outline" size="sm" hint-size="150px,40px">{{ bookingLabel }}</x-import>
+              </a>
+            </sc-if>
+          </x-import>
+        </sc-for>
+        <sc-if value="{{ noEvents }}" hint-placeholder-val="{{ false }}">
+          <p style="color: var(--text-muted); font-style: italic; padding: 20px 0;">No events this month. Check back soon.</p>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Past gatherings">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 0 28px 70px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="Past gatherings" title="What it feels" accent="like to be here." size="lg" hint-size="auto,100px"></x-import>
+      <div style="display: flex; justify-content: center; margin-top: 32px;">
+        <image-slot id="events-photo-1" placeholder="Healing circle in session" shape="rounded" radius="20" style="width:100%;max-width:420px;height:240px;"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-terracotta); color: var(--text-on-dark);" data-screen-label="Host">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 80px 28px; text-align: center;">
+      <span style="font-family: var(--font-display); font-style: italic; font-size: 36px; line-height: 1.2; color: var(--bhc-ivory);">Want to host with us?</span>
+      <p style="margin: 18px 0 28px; color: var(--bhc-bone); font-size: 17px;">We partner with community facilitators and artists year-round.</p>
+      <a href="Partner.dc.html" style="text-decoration: none;"><x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="secondary" size="lg" hint-size="180px,52px">Get in touch</x-import></a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,340px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;showBookingCta&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Booking&quot;},
+  &quot;bookingLabel&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Reserve your spot&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Booking&quot;},
+  &quot;accentTone&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Terracotta&quot;, &quot;options&quot;: [&quot;Terracotta&quot;, &quot;Fern&quot;, &quot;Sky&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Calendar&quot;}
+}">
+const MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const MONTH_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const WEEKDAYS = ["Su","Mo","Tu","We","Th","Fr","Sa"];
+
+const RECURRING_SERIES = [
+  { title: "Meditation with Fimo", category: "Drop-In", tone: "sky", time: "6:30PM – 8PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 7, 6), weekday: 4, description: "A guided drop-in meditation session to ground and reset." },
+  { title: "Choir with Tanja", category: "Drop-In", tone: "sky", time: "6:30PM – 8PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 7, 5), weekday: 3, description: "Communal singing for connection, joy, and voice." },
+  { title: "Yoga with Nadège", category: "Drop-In", tone: "sky", time: "4PM – 5PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 7, 16), weekday: 0, description: "A gentle, restorative practice open to all levels." },
+  { title: "Unleash Your Voice (Level 1) with Kym", category: "Workshop", tone: "terracotta", time: "5:30PM – 8:30PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 8, 14), weekday: 1, description: "Writers group exploring self-expression through the written word." },
+  { title: "Unleash Your Voice (Level 2) with Kym", category: "Workshop", tone: "terracotta", time: "4PM – 7PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 8, 19), weekday: 6, description: "Advanced writers group building on Level 1 foundations." },
+  { title: "Collective Care Circle for Women", category: "Group Therapy", tone: "fern", time: "6PM – 8PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 7, 18), weekday: 2, description: "A supportive space for women to process and heal together." },
+];
+
+function generateRecurringEvents(series, endDate) {
+  const out = [];
+  series.forEach((r) => {
+    let d = new Date(r.start);
+    while (d <= endDate) {
+      out.push({ day: d.getDate(), month: d.getMonth() + 1, year: d.getFullYear(), category: r.category, tone: r.tone, title: r.title, time: r.time, location: r.location, description: r.description });
+      d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 7);
+    }
+  });
+  return out;
+}
+
+const EVENTS = generateRecurringEvents(RECURRING_SERIES, new Date(2026, 11, 31));
+
+function startOfWeek(d) {
+  const r = new Date(d);
+  r.setDate(r.getDate() - r.getDay());
+  r.setHours(0, 0, 0, 0);
+  return r;
+}
+
+class Component extends DCLogic {
+  state = { month: 9, year: 2026, weekStart: startOfWeek(new Date(2026, 8, 7)) };
+
+  shiftMonth(delta) {
+    this.setState((s) => {
+      let m = s.month + delta;
+      let y = s.year;
+      if (m < 1) { m = 12; y -= 1; }
+      if (m > 12) { m = 1; y += 1; }
+      return { month: m, year: y };
+    });
+  }
+
+  shiftWeek(delta) {
+    this.setState((s) => {
+      const d = new Date(s.weekStart);
+      d.setDate(d.getDate() + delta * 7);
+      return { weekStart: d };
+    });
+  }
+
+  renderVals() {
+    const accentTone = this.props.accentTone ?? "Terracotta";
+    const accentVar = accentTone === "Fern" ? "var(--bhc-fern)" : accentTone === "Sky" ? "var(--bhc-water)" : "var(--bhc-terracotta)";
+    const showBookingCta = this.props.showBookingCta ?? true;
+    const bookingLabel = this.props.bookingLabel ?? "Reserve your spot";
+
+    const { month, year } = this.state;
+    const today = new Date();
+
+    const first = new Date(year, month - 1, 1).getDay();
+    const daysIn = new Date(year, month, 0).getDate();
+    const prevDays = new Date(year, month - 1, 0).getDate();
+
+    const monthEventsRaw = EVENTS.filter((e) => e.month === month && e.year === year).sort((a, b) => a.day - b.day);
+    const eventDays = new Set(monthEventsRaw.map((e) => e.day));
+
+    const { weekStart } = this.state;
+    const weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekEnd.getDate() + 6);
+    const eventDate = (e) => new Date(e.year, e.month - 1, e.day);
+    const weekEventsRaw = EVENTS.filter((e) => {
+      const d = eventDate(e);
+      return d >= weekStart && d <= weekEnd;
+    }).sort((a, b) => eventDate(a) - eventDate(b));
+    const weekLabel = MONTH_SHORT[weekStart.getMonth()] + " " + weekStart.getDate() + " – " + MONTH_SHORT[weekEnd.getMonth()] + " " + weekEnd.getDate() + ", " + weekEnd.getFullYear();
+
+    let cells = [];
+    for (let i = first - 1; i >= 0; i--) cells.push({ d: prevDays - i, other: true });
+    for (let d = 1; d <= daysIn; d++) cells.push({ d, other: false });
+    while (cells.length % 7 !== 0) cells.push({ d: cells.length - daysIn - first + 1, other: true });
+
+    cells = cells.map((c, i) => {
+      const isToday = !c.other && c.d === today.getDate() && month - 1 === today.getMonth() && year === today.getFullYear();
+      const hasEvent = !c.other && eventDays.has(c.d);
+      return {
+        key: i,
+        d: c.d,
+        color: c.other ? "var(--text-muted)" : isToday ? "var(--text-on-dark)" : "var(--text-body)",
+        bg: isToday ? accentVar : "transparent",
+        weight: isToday ? 700 : 400,
+        hasEvent,
+        dotColor: isToday ? "var(--bhc-ivory)" : accentVar,
+      };
+    });
+
+    const weekEvents = weekEventsRaw.map((e) => ({ ...e, monthShort: MONTH_SHORT[e.month - 1] }));
+
+    return {
+      monthLabel: MONTH_NAMES[month - 1] + " " + year,
+      weekdays: WEEKDAYS,
+      cells,
+      weekLabel,
+      monthEvents: weekEvents,
+      noEvents: weekEvents.length === 0,
+      showBookingCta,
+      bookingLabel,
+      prevMonth: () => this.shiftMonth(-1),
+      nextMonth: () => this.shiftMonth(1),
+      prevWeek: () => this.shiftWeek(-1),
+      nextWeek: () => this.shiftWeek(1),
+    };
+  }
+}
+</script>
+</body>
+</html>

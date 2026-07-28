@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>CCP Training Program - Black Healing Centre</title>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; background: var(--surface-page); font-family: var(--font-sans); }
+    a { color: var(--bhc-terracotta); }
+    a:hover { color: var(--bhc-espresso); }
+  </style>
+</helmet>
+<dc-import name="Header" active-page="Programs" hint-size="100%,72px"></dc-import>
+
+<main>
+  <section style="background: var(--surface-card); overflow: hidden; position: relative;" data-screen-label="CCP hero">
+    <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 8 }}" color="Terracotta" size="{{ 240 }}" base="assets/illustrations/svg" style="position: absolute; right: -40px; top: -30px; opacity: 0.9;" hint-size="240px,240px"></x-import>
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 90px 28px 70px; position: relative; z-index: 1;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="blossom" hint-size="auto,32px">Practitioner development</x-import>
+      <h1 style="margin: 22px 0 0; max-width: 18ch; font-family: var(--font-sans); font-weight: 700; font-size: clamp(30px, 6.5vw, 48px); line-height: 1.08; letter-spacing: -0.03em; color: var(--text-strong);">
+        Community Care Practitioners: <span style="display: block; font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--text-accent); font-size: clamp(32px, 7vw, 50px);">trained by us, for us.</span>
+      </h1>
+      <p style="margin: 24px 0 0; max-width: 58ch; font-size: 18px; line-height: 1.65; color: var(--text-body);">
+        Our Community Care Practitioners are trained members of our own community who hold space for healing. They're not outsiders learning about our experiences from a textbook. They understand what it means to move through the world as a Black person in Montréal, because they live it too.
+      </p>
+      <p style="margin: 14px 0 0; max-width: 58ch; font-size: 15px; line-height: 1.6; color: var(--text-muted);">This is a paid training — participants receive an honorarium for their time and contributions.</p>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="What is the program">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 70px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="What is the program?" title="A network of" accent="Afro-identified healers." size="lg" hint-size="auto,100px"></x-import>
+      <p style="margin: 22px 0 0; font-size: 16px; line-height: 1.8; color: var(--text-body);">
+        The Community Care Practitioners (CCP) Training program is a collaborative initiative between the Black Healing Centre, Dr. Lisa Ndejuru, and the SHIFT Centre for Social Transformation at Concordia University. This program adopts a decolonial, anti-racist, and community-engaged approach to address issues of anti-Black racism, racial trauma, and community mental health.
+      </p>
+      <p style="margin: 16px 0 0; font-size: 16px; line-height: 1.8; color: var(--text-body);">
+        It aims to build a network of Afro-identified community care practitioners who acknowledge and validate the lived experiences of Black people. Through a holistic and preventative approach, participants learn to find the root causes of clients' issues, focusing on comprehensive care rather than just treating symptoms.
+      </p>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-fern); color: var(--text-on-dark);" data-screen-label="Objectives and goals">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 70px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 46px;">
+      <div>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="butter" hint-size="auto,32px">Program objectives</x-import>
+        <ul style="list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+          <sc-for list="{{ objectives }}" as="o" hint-placeholder-count="5">
+            <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.6; color: rgba(255,251,242,0.85);"><span style="color: var(--bhc-butter); flex-shrink: 0;">–</span>{{ o }}</li>
+          </sc-for>
+        </ul>
+      </div>
+      <div>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="sun" hint-size="auto,32px">Training goals</x-import>
+        <ul style="list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+          <sc-for list="{{ goals }}" as="g" hint-placeholder-count="3">
+            <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.6; color: rgba(255,251,242,0.85);"><span style="color: var(--bhc-butter); flex-shrink: 0;">–</span>{{ g }}</li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Outcomes">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 70px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="After the training" title="What graduates" accent="will be able to do." size="lg" hint-size="auto,100px"></x-import>
+      <ul style="list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 0;">
+        <sc-for list="{{ outcomes }}" as="out" hint-placeholder-count="4">
+          <li style="display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border-soft); font-size: 16px; line-height: 1.6; color: var(--text-body);"><span style="color: var(--text-accent); flex-shrink: 0; font-weight: 700;">–</span>{{ out }}</li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-terracotta); color: var(--text-on-dark);" data-screen-label="Clinical leadership">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 70px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 46px; align-items: center;">
+      <image-slot id="ccp-lead" placeholder="Dr. Lisa Ndejuru portrait" shape="rounded" radius="20" style="width:100%;height:280px;"></image-slot>
+      <div>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="butter" hint-size="auto,32px">A collaborative initiative</x-import>
+        <h3 style="margin: 16px 0 6px; font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 28px; color: var(--bhc-ivory);">Led by Dr. Lisa Ndejuru</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.75; color: rgba(255,251,242,0.85); max-width: 62ch;">
+          Developed with the Black Healing Centre and the SHIFT Centre for Social Transformation at Concordia University, the program is grounded in Dr. Ndejuru's clinical expertise, ensuring every Community Care Practitioner is trained and supervised within an appropriate, decolonial care framework.
+        </p>
+        <a href="About.dc.html" style="text-decoration: none; display: inline-block; margin-top: 18px;"><x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="secondary" hint-size="auto,44px">Meet our team</x-import></a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-card);" data-screen-label="Apply">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 80px 28px; text-align: center;">
+      <span style="font-family: var(--font-display); font-style: italic; font-size: 36px; line-height: 1.2; color: var(--text-accent);">Interested in joining a cohort?</span>
+      <p style="margin: 18px 0 28px; color: var(--text-muted); font-size: 17px;">Cohort 2 applications are open August 3–21, 2026. Read the full details and apply.</p>
+      <a href="BecomeCCP.dc.html" style="text-decoration: none;"><x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="primary" size="lg" hint-size="200px,52px">Become a CCP</x-import></a>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page); border-top: 1px solid var(--border-soft);" data-screen-label="Funder">
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 40px 28px; text-align: center;">
+      <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--text-muted);">This project is funded by the Foundation for Black Communities, with partial support from the Government of Canada.</p>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,340px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const objectives = [
+      "Train Black healers in decolonial, anti-racist, and afro-positive approaches to holding space for people experiencing mental health challenges",
+      "Build a network of Afro-identified community care practitioners",
+      "Acknowledge and validate the lived experiences of Black people",
+      "Build a care approach in community, for community",
+      "Reduce wait times for care",
+    ];
+    const goals = [
+      "Deliver consistent results as a Community Care Practitioner",
+      "Develop a broad set of coaching skills",
+      "Equip participants with the knowledge and tools to provide comprehensive care for individuals",
+    ];
+    const outcomes = [
+      "Evaluate a client's risk of harm to self or others",
+      "Refer clients as needed to the professionals who can provide the correct support",
+      "Guide clients in a goal-setting process",
+      "Create a judgment-free space in which clients feel safe to share what is troubling them",
+    ];
+    return { objectives, goals, outcomes };
+  }
+}
+</script>
+</body>
+</html>

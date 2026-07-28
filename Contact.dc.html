@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Contact - Black Healing Centre</title>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; background: var(--surface-page); font-family: var(--font-sans); }
+    a { color: var(--bhc-terracotta); }
+    a:hover { color: var(--bhc-espresso); }
+  </style>
+</helmet>
+<dc-import name="Header" active-page="Contact" hint-size="100%,72px"></dc-import>
+
+<main>
+  <section style="background: var(--surface-page);" data-screen-label="Contact hero">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px 20px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="sky" hint-size="auto,32px">Get in touch</x-import>
+      <h1 style="margin: 22px 0 0; font-family: var(--font-sans); font-weight: 700; font-size: clamp(30px, 6.5vw, 48px); line-height: 1.08; letter-spacing: -0.03em; color: var(--text-strong);">
+        We would love to <span style="font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--text-accent);">hear from you.</span>
+      </h1>
+      <p style="margin: 20px 0 0; max-width: 56ch; font-size: 18px; line-height: 1.65; color: var(--text-body);">
+        Whether you're looking to access programming, join our community, explore a partnership, or support our work: reach out. You are welcome here.
+      </p>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Contact form and details">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 40px 28px 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="raised" padding="36px" hint-size="100%,520px">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align: center; padding: 40px 0;">
+            <h2 style="font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--text-accent); font-size: 30px; margin: 0 0 10px;">Message received.</h2>
+            <p style="color: var(--text-muted);">We'll be in touch within 2–3 business days. You are welcome here.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Input" label="Full name" placeholder="Your name" value="{{ name }}" onChange="{{ onNameChange }}" hint-size="100%,68px"></x-import>
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Input" label="Email" type="email" placeholder="you@example.com" value="{{ email }}" onChange="{{ onEmailChange }}" hint-size="100%,68px"></x-import>
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Select" label="I'm reaching out about" options="{{ topics }}" value="{{ topic }}" onChange="{{ onTopicChange }}" hint-size="100%,68px"></x-import>
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Textarea" label="Message" placeholder="Share what brings you here, we're listening." value="{{ message }}" onChange="{{ onMessageChange }}" hint-size="100%,120px"></x-import>
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Checkbox" label="I consent to BHC reaching out via email. My information will not be shared with third parties." checked="{{ consent }}" onChange="{{ onConsentChange }}" hint-size="auto,40px"></x-import>
+            <sc-if value="{{ formError }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0; font-size: 13px; color: var(--danger, #B3261E);">{{ formError }}</p>
+            </sc-if>
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="primary" full="{{ true }}" disabled="{{ sending }}" onClick="{{ send }}" hint-size="100%,48px">{{ sendLabel }}</x-import>
+          </div>
+        </sc-if>
+      </x-import>
+
+      <div style="display: flex; flex-direction: column; gap: 22px;">
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="fern" hint-size="100%,180px">
+          <div style="color: var(--text-on-dark); display: flex; flex-direction: column; gap: 12px;">
+            <div><span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bhc-butter); font-weight: 600;">Location</span><p style="margin: 4px 0 0; font-size: 16px;">Montréal, Québec, Canada</p></div>
+            <div><span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bhc-butter); font-weight: 600;">Email</span><p style="margin: 4px 0 0; font-size: 16px;">info@blackhealingcentre.com</p></div>
+            <div><span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bhc-butter); font-weight: 600;">Web</span><p style="margin: 4px 0 0; font-size: 16px;">blackhealingcentre.com</p></div>
+          </div>
+        </x-import>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="card" hint-size="100%,140px">
+          <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-accent); font-weight: 600; margin-bottom: 10px;">Access & inclusion</div>
+          <p style="margin: 0; font-size: 14px; line-height: 1.65; color: var(--text-body);">All programming is offered on a sliding scale or fully subsidized basis. Cost is never a barrier. Reach out if you need any accommodations. We will always find a way to welcome you in.</p>
+        </x-import>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,340px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// Email forwarding via Formspree — forwards to info@blackhealingcentre.com.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykrddqg";
+
+class Component extends DCLogic {
+  state = { name: "", email: "", topic: "", message: "", consent: false, sending: false, sent: false, formError: null };
+
+  renderVals() {
+    const topics = [
+      { value: "", label: "Select a reason" },
+      { value: "access", label: "Accessing programs or support" },
+      { value: "events", label: "Community events" },
+      { value: "partnership", label: "Institutional partnership" },
+      { value: "funding", label: "Funding or donation" },
+      { value: "practitioner", label: "Practitioner development" },
+      { value: "media", label: "Media inquiry" },
+      { value: "other", label: "Something else" },
+    ];
+
+    const send = async () => {
+      const { name, email, topic, message, consent } = this.state;
+      if (!name.trim() || !email.trim() || !message.trim()) {
+        this.setState({ formError: "Please fill in your name, email, and a message." });
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        this.setState({ formError: "Please enter a valid email address." });
+        return;
+      }
+      if (!consent) {
+        this.setState({ formError: "Please confirm consent before submitting." });
+        return;
+      }
+      this.setState({ sending: true, formError: null });
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            _subject: "New contact form submission: BHC website",
+            name, email, reason: topic || "(not specified)", message,
+          }),
+        });
+        if (!res.ok) throw new Error("Request failed");
+        this.setState({ sent: true, sending: false });
+      } catch (err) {
+        this.setState({ sending: false, formError: "Something went wrong sending your message. Please try again or email us directly." });
+      }
+    };
+
+    return {
+      topics,
+      name: this.state.name,
+      email: this.state.email,
+      topic: this.state.topic,
+      message: this.state.message,
+      consent: this.state.consent,
+      sending: this.state.sending,
+      sendLabel: this.state.sending ? "Sending…" : "Send message",
+      formError: this.state.formError,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      onNameChange: (e) => this.setState({ name: e.target.value }),
+      onEmailChange: (e) => this.setState({ email: e.target.value }),
+      onTopicChange: (e) => this.setState({ topic: e.target.value }),
+      onMessageChange: (e) => this.setState({ message: e.target.value }),
+      onConsentChange: (e) => this.setState({ consent: e.target.checked }),
+      send,
+    };
+  }
+}
+</script>
+</body>
+</html>
