@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>About - Black Healing Centre</title>
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/styles.css">
+  <script src="_ds/black-healing-centre-design-system-43d3f9d0-771a-49e3-85a0-c5466cdb4a4a/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; background: var(--surface-page); font-family: var(--font-sans); }
+    a { color: var(--bhc-terracotta); }
+    a:hover { color: var(--bhc-espresso); }
+  </style>
+</helmet>
+<dc-import name="Header" active-page="About" hint-size="100%,72px"></dc-import>
+
+<main>
+  <section style="background: var(--surface-card); overflow: hidden; position: relative;" data-screen-label="About hero">
+    <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 4 }}" color="Fern" size="{{ 260 }}" base="assets/illustrations/svg" style="position: absolute; right: -50px; top: -30px; opacity: 0.9;" hint-size="260px,260px"></x-import>
+    <div style="max-width: var(--container-md); margin: 0 auto; padding: 90px 28px 70px; position: relative; z-index: 1;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="fern" hint-size="auto,32px">About us</x-import>
+      <h1 style="margin: 22px 0 0; max-width: 18ch; font-family: var(--font-sans); font-weight: 700; font-size: clamp(32px, 7vw, 50px); line-height: 1.08; letter-spacing: -0.03em; color: var(--text-strong);">
+        A space built <span style="display: block; font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--text-accent); font-size: clamp(34px, 7.5vw, 52px);">from within.</span>
+      </h1>
+      <p style="margin: 24px 0 0; max-width: 56ch; font-size: 18px; line-height: 1.65; color: var(--text-body);">
+        Founded in Montréal in 2022, in direct response to needs consistently expressed by Black community members.
+      </p>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Mission and approach">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; align-items: start;">
+      <div>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="terracotta" hint-size="auto,32px">Mission &amp; approach</x-import>
+        <h2 style="margin: 18px 0 20px; font-family: var(--font-sans); font-weight: 700; font-size: 32px; line-height: 1.2; color: var(--text-strong);">Strengthening what <span style="font-family: var(--font-display); font-style: italic; font-weight: 400; color: var(--text-accent);">already exists</span> within us.</h2>
+        <p style="font-size: 15px; line-height: 1.8; color: var(--text-body); margin: 0 0 14px;">BHC creates and sustains culturally affirming spaces where Black communities in Montréal can heal, connect, and build collective power. We cultivate environments where the resilience, creativity, and leadership within Black communities can thrive.</p>
+        <p style="font-size: 15px; line-height: 1.8; color: var(--text-body); margin: 0 0 14px;">We understand that systemic barriers affect mental, emotional, and social wellbeing. In response, we provide accessible, community-led healing practices, leadership development, and spaces for dialogue and solidarity: resources that strengthen what already exists within the community.</p>
+        <p style="font-size: 15px; line-height: 1.8; color: var(--text-body); margin: 0;">Needs assessment at the Centre is ongoing and participatory. Community members shape programming through advisory circles, open forums, and compensated co-design sessions, rather than assuming priorities, we create structured opportunities for participants to articulate emerging needs.</p>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+          <div style="display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border-soft);">
+            <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ p.v }}" color="{{ p.color }}" size="{{ 40 }}" base="assets/illustrations/svg" hint-size="40px,40px"></x-import>
+            <div>
+              <h4 style="margin: 0 0 4px; font-family: var(--font-sans); font-weight: 700; font-size: 16px; color: var(--text-strong);">{{ p.title }}</h4>
+              <p style="margin: 0; font-size: 13px; line-height: 1.6; color: var(--text-muted);">{{ p.short }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-terracotta); color: var(--text-on-dark); position: relative; overflow: hidden;" data-screen-label="Space">
+    <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Blossom" variation="{{ 6 }}" color="Butter" size="{{ 200 }}" base="assets/illustrations/svg" style="position: absolute; left: -40px; bottom: -50px; opacity: 0.3;" hint-size="200px,200px"></x-import>
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 70px 28px; position: relative; z-index: 1;">
+      <div style="display: flex; justify-content: center;">
+        <image-slot id="space-1" placeholder="Space detail, plant, art or object" shape="rounded" radius="20" style="width:100%;max-width:460px;height:280px;"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-card);" data-screen-label="Team">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="Governance &amp; leadership" title="Those who" accent="hold the space." size="lg" hint-size="auto,100px"></x-import>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px;">
+        <sc-for list="{{ team }}" as="t" hint-placeholder-count="10">
+          <div style="height: auto; min-height: 340px; display: flex;">
+          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="raised" hint-size="100%,340px" style="position: relative; display: flex; flex-direction: column; width: 100%; height: 100%;">
+            <image-slot id="{{ t.id }}" placeholder="{{ t.name }} portrait" shape="circle" style="width:76px;height:76px;"></image-slot>
+            <h3 style="margin: 14px 0 2px; font-family: var(--font-sans); font-weight: 700; font-size: 17px; color: var(--text-strong); min-height: 66px;">{{ t.name }}</h3>
+            <p style="margin: 0 0 8px; color: var(--text-accent); font-size: 13px; font-weight: 600; min-height: 36px;">{{ t.role }}</p>
+            <p style="margin: 0; color: var(--text-muted); font-size: 13px; line-height: 1.55;">{{ t.bio }}</p>
+          </x-import>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-fern); color: var(--text-on-dark);" data-screen-label="Clinical leadership">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 80px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; align-items: center;">
+      
+      <div style="margin-top: {{ clinicalPhotoOffset }}px;"><image-slot id="clinical-lead" placeholder="Dr. Lisa Ndejuru portrait" shape="rounded" radius="20" style="width:100%;height:340px;"></image-slot></div><div>
+        <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="butter" hint-size="auto,32px">Clinical leadership</x-import>
+        <h3 style="margin: 16px 0 6px; font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 32px; color: var(--bhc-ivory);">Dr. Lisa Ndejuru</h3>
+        
+        <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.75; color: rgba(255,251,242,0.75); max-width: 62ch;">Is a psychotherapist, psychodramatist and theatre practitioner with thirty years of practice. Her work creates accessible, scalable strategies for healing in communities impacted by the violence of anti-blackness, breaking silences and repairing trust across generations. She teaches at Concordia University and the University of Ottawa, founded Omora Healing, co-founded the African Psychedelic Research and Practice Collective, and serves as a senior clinician at the Ketamine-Assisted Treatment and Research Centre in Kigali.</p><div style="display: flex; flex-direction: column; gap: 8px; max-width: 420px;">
+          <sc-for list="{{ badges }}" as="b" hint-placeholder-count="4">
+            
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--surface-page);" data-screen-label="Partners">
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 70px 28px; text-align: center;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.SectionHeading" eyebrow="Partners &amp; funders" title="Built with trust," accent="sustained by community." size="lg" align="center" hint-size="auto,100px"></x-import>
+      <p style="margin: 16px auto 0; max-width: 56ch; font-size: 15px; line-height: 1.7; color: var(--text-muted);">Over $450,000 raised across a growing network of partners. Many have returned with multi-year commitments, reflecting sustained confidence in BHC's community-rooted model.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 30px;">
+        <sc-for list="{{ partners }}" as="p" hint-placeholder-count="13">
+          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="espresso" variant="outline" hint-size="auto,32px">{{ p }}</x-import>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,340px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;clinicalPhotoOffset&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: -40, &quot;min&quot;: -140, &quot;max&quot;: 60, &quot;step&quot;: 4, &quot;unit&quot;: &quot;px&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Clinical leadership&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const pillars = [
+      { v: 2, color: "Fern", title: "Healing & Psychosocial Care", short: "Group therapy, peer support, somatic workshops, in community, not isolation." },
+      { v: 5, color: "Terracotta", title: "Leadership & Community Capacity", short: "Co-design, mentorship, dialogue. Contributors and decision-makers, not just recipients." },
+      { v: 7, color: "Sky", title: "Practitioner Development", short: "Training and restorative retreats for those who do the caring work." },
+      { v: 9, color: "Sun", title: "Spacemaking as Infrastructure", short: "The space generates trust, solidarity and shared leadership. It is the foundation." },
+    ];
+    const team = [
+      { id: "team-1", name: "Kristen Young (she/her)", role: "Chair · Board President", bio: "Providing strategic oversight for BHC's mission." },
+      { id: "team-2", name: "Phillipe Koffi \n(he/him)", role: "Vice-Chair", bio: "Supporting governance and community reach." },
+      { id: "team-3", name: "Danielle-Jocelyne Otou (she/her)", role: "Executive Director", bio: "Leading BHC's overall vision and operations." },
+      { id: "team-10", name: "Samanta Nyinawumuntu (she/they)", role: "Founder · Program Manager", bio: "Founded BHC and shapes its programming from the ground up, translating community needs into culturally affirming care." },
+      { id: "team-7", name: "Brianna Kormendy-Ramírez (she/her)", role: "Communications Lead", bio: "Shaping BHC's voice and community outreach." },
+      { id: "team-9", name: "Ludyvine Kodjane (they/them)", role: "Treasurer", bio: "Ensuring financial stewardship and accountability." },
+      { id: "team-4", name: "Aaron Hewitt (he/him)", role: "Secretary", bio: "Maintaining governance and board operations." },
+      { id: "team-5", name: "Aida Bangoura (she/her)", role: "Director", bio: "Guiding programming with lived experience." },
+      { id: "team-6", name: "Sophie Apollon-Auguste (she/her)", role: "Director", bio: "Shaping culturally responsive programming." },
+      { id: "team-8", name: "Camille Georges (she/her)", role: "Director", bio: "Supporting governance and community care." },
+    ];
+    const badges = ["Concordia University", "Clinical Director, BHC", "Healing Our Stories", "Community-Centred Knowledge Project"];
+    const partners = ["Lululemon", "CHSSN", "SHIFT Centre for Social Transformation", "Concordia University", "McConnell Foundation", "Pathy Foundation", "Foundation for Black Communities", "Groupe 3737", "Lawson Foundation", "Elizabeth House", "CIUSSS", "DESTA", "CDNBA"];
+    const clinicalPhotoOffset = this.props.clinicalPhotoOffset ?? -40;
+    return { pillars, team, badges, partners, clinicalPhotoOffset };
+  }
+}
+</script>
+</body>
+</html>
