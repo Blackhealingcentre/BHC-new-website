@@ -64,7 +64,7 @@
               <p style="margin: 0; font-size: 13px; color: var(--text-muted);">{{ e.time }} · {{ e.location }}</p>
             </div>
             <sc-if value="{{ showBookingCta }}" hint-placeholder-val="{{ true }}">
-              <a href="https://app.arketa.co/black-healing-centre" target="_blank" rel="noopener" style="text-decoration: none;">
+              <a href="{{ e.href }}" target="_blank" rel="noopener" style="text-decoration: none;">
                 <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="outline" size="sm" hint-size="150px,40px">{{ bookingLabel }}</x-import>
               </a>
             </sc-if>
@@ -106,22 +106,32 @@ const MONTH_NAMES = ["January","February","March","April","May","June","July","A
 const MONTH_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const WEEKDAYS = ["Su","Mo","Tu","We","Th","Fr","Sa"];
 
+const CALENDAR_URL = "https://app.arketa.co/blackhealingcentre/calendar";
+const VENUE = "Black Healing Centre, Montréal";
+
 const RECURRING_SERIES = [
-  { title: "Meditation with Fimo", category: "Drop-In", tone: "sky", time: "6:30PM – 8PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 7, 6), weekday: 4, description: "A guided drop-in meditation session to ground and reset." },
-  { title: "Choir with Tanja", category: "Drop-In", tone: "sky", time: "6:30PM – 8PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 7, 5), weekday: 3, description: "Communal singing for connection, joy, and voice." },
-  { title: "Yoga with Nadège", category: "Drop-In", tone: "sky", time: "4PM – 5PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 7, 16), weekday: 0, description: "A gentle, restorative practice open to all levels." },
-  { title: "Unleash Your Voice (Level 1) with Kym", category: "Workshop", tone: "terracotta", time: "5:30PM – 8:30PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 8, 14), weekday: 1, description: "Writers group exploring self-expression through the written word." },
-  { title: "Unleash Your Voice (Level 2) with Kym", category: "Workshop", tone: "terracotta", time: "4PM – 7PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 8, 19), weekday: 6, description: "Advanced writers group building on Level 1 foundations." },
-  { title: "Collective Care Circle for Women", category: "Group Therapy", tone: "fern", time: "6PM – 8PM", location: "Black Healing Centre, Montréal", start: new Date(2026, 7, 18), weekday: 2, description: "A supportive space for women to process and heal together." },
+  { title: "Unleash Your Voice (Level 1)", category: "Workshop", tone: "terracotta", time: "6PM – 9PM", location: VENUE, start: new Date(2026, 8, 21), every: 7, description: "A writing and performing workshop series, Mondays.", regUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeeqamxCSJI_Huc_7II-RgCkpHQQHSeR1lr2_gfeMJ3vkjXvw/viewform" },
+  { title: "Lift Your Voice", category: "Drop-In", tone: "sky", time: "6:30PM – 8:30PM", location: VENUE, start: new Date(2026, 8, 16), every: 7, until: new Date(2026, 11, 10), description: "Community choir. Communal singing for connection, joy, and voice.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/3h8R2lZ2OZrKRHcW8m7y" },
+  { title: "A Place of Stillness", category: "Drop-In", tone: "sky", time: "6:30PM – 8PM", location: VENUE, start: new Date(2026, 8, 17), every: 7, description: "Community meditation. A guided space to ground and reset.", regUrl: "https://www.whenthevillagemeditates.com/event-details/a-place-of-stillness-2026-09-17-18-30" },
+  { title: "Menopausitive Café: Movie Night", category: "Movie Night", tone: "terracotta", time: "6PM – 8PM", location: VENUE, dates: [new Date(2026, 8, 18)], description: "A screening and conversation to open the season.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/qCKeXDTcIG4JFIWl525T" },
+  { title: "Menopausitive Café", category: "Drop-In", tone: "sky", time: "6PM – 8PM", location: VENUE, dates: [new Date(2026, 9, 30), new Date(2026, 10, 27), new Date(2026, 11, 25)], description: "A monthly drop-in gathering to share and be heard, the last Friday of the month.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/qCKeXDTcIG4JFIWl525T" },
+  { title: "Slow Saturdays x Tanja", category: "Drop-In", tone: "sky", time: "10AM – 11AM", location: VENUE, start: new Date(2026, 8, 19), every: 14, description: "Gentle yoga, every other Saturday. Open to all levels.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/3Zvn2eD6o74VM86bKmYG" },
+  { title: "Unleash Your Voice (Level 3)", category: "Workshop", tone: "terracotta", time: "4PM – 7PM", location: VENUE, start: new Date(2026, 8, 26), every: 7, description: "Advanced writing and performing workshop, Saturdays.", regUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeeqamxCSJI_Huc_7II-RgCkpHQQHSeR1lr2_gfeMJ3vkjXvw/viewform" },
+  { title: "Collective Care Circles", category: "Group Therapy", tone: "fern", time: "12PM – 2PM", location: VENUE, start: new Date(2026, 8, 20), every: 7, description: "A weekly circle for women to process and heal together." },
+  { title: "Entering Silence x When the Village Meditates", category: "Retreat", tone: "fern", time: "All day", location: VENUE, dates: [new Date(2026, 8, 26)], description: "A one-day silent meditation retreat.", regUrl: "https://www.whenthevillagemeditates.com/event-details/entering-silence" },
+  { title: "Sunday Reset x Nadège", category: "Drop-In", tone: "sky", time: "4PM – 5PM", location: VENUE, start: new Date(2026, 8, 27), every: 14, description: "A gentle, restorative practice to close the week. Open to all levels.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/BEKMumKzx8745gZIZjRN" },
 ];
 
 function generateRecurringEvents(series, endDate) {
   const out = [];
+  const push = (r, d) => out.push({ day: d.getDate(), month: d.getMonth() + 1, year: d.getFullYear(), category: r.category, tone: r.tone, title: r.title, time: r.time, location: r.location, description: r.description, href: r.regUrl || CALENDAR_URL });
   series.forEach((r) => {
+    if (r.dates) { r.dates.forEach((d) => { if (d <= endDate) push(r, d); }); return; }
+    const stop = r.until && r.until < endDate ? r.until : endDate;
     let d = new Date(r.start);
-    while (d <= endDate) {
-      out.push({ day: d.getDate(), month: d.getMonth() + 1, year: d.getFullYear(), category: r.category, tone: r.tone, title: r.title, time: r.time, location: r.location, description: r.description });
-      d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 7);
+    while (d <= stop) {
+      push(r, d);
+      d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + (r.every || 7));
     }
   });
   return out;
@@ -137,7 +147,7 @@ function startOfWeek(d) {
 }
 
 class Component extends DCLogic {
-  state = { month: 9, year: 2026, weekStart: startOfWeek(new Date(2026, 8, 7)) };
+  state = (() => { const t = new Date(); return { month: t.getMonth() + 1, year: t.getFullYear(), weekStart: startOfWeek(t) }; })();
 
   shiftMonth(delta) {
     this.setState((s) => {
@@ -152,7 +162,7 @@ class Component extends DCLogic {
   shiftWeek(delta) {
     this.setState((s) => {
       const d = new Date(s.weekStart);
-      d.setDate(d.getDate() + delta * 7);
+      d.setDate(d.getDate() + delta * 14);
       return { weekStart: d };
     });
   }
@@ -175,7 +185,7 @@ class Component extends DCLogic {
 
     const { weekStart } = this.state;
     const weekEnd = new Date(weekStart);
-    weekEnd.setDate(weekEnd.getDate() + 6);
+    weekEnd.setDate(weekEnd.getDate() + 13);
     const eventDate = (e) => new Date(e.year, e.month - 1, e.day);
     const weekEventsRaw = EVENTS.filter((e) => {
       const d = eventDate(e);
