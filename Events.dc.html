@@ -37,43 +37,11 @@
   </section>
 
   <section style="background: var(--surface-page);" data-screen-label="Calendar">
-    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 30px 28px 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: start;">
-
-      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="raised" padding="8px" hint-size="380px,460px" style="overflow: hidden;">
-        <iframe id="sutraWidgetIframe" title="Black Healing Centre booking calendar" src="https://app.arketa.co/iframe/blackhealingcentre/calendar" width="100%" height="900" style="border: none; border-radius: var(--radius-md); display: block;" allow="payment;fullscreen" allowfullscreen="true"></iframe>
+    <div style="max-width: var(--container-lg); margin: 0 auto; padding: 30px 28px 60px;">
+      <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="raised" padding="8px" hint-size="100%,900px" style="overflow: hidden;">
+        <iframe id="sutraWidgetIframe" title="Black Healing Centre booking calendar" src="https://app.arketa.co/iframe/blackhealingcentre/calendar" width="100%" height="1000" style="border: none; border-radius: var(--radius-md); display: block;" allow="payment;fullscreen" allowfullscreen="true"></iframe>
       </x-import>
-
-      <div style="display: flex; flex-direction: column; gap: 12px;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-          <h4 style="margin: 0; font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 20px; color: var(--text-strong);">{{ weekLabel }}</h4>
-          <div style="display: flex; gap: 8px;">
-            <button onClick="{{ prevWeek }}" style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border-soft); background: var(--surface-card); color: var(--text-strong); cursor: pointer; font-size: 16px; line-height: 1;">‹</button>
-            <button onClick="{{ nextWeek }}" style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border-soft); background: var(--surface-card); color: var(--text-strong); cursor: pointer; font-size: 16px; line-height: 1;">›</button>
-          </div>
-        </div>
-        <sc-for list="{{ monthEvents }}" as="e" hint-placeholder-count="4">
-          <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Card" tone="card" padding="18px 22px" hint-size="100%,116px" style="display: grid; grid-template-columns: 60px 1fr auto; gap: 18px; align-items: center;">
-            <div style="text-align: center;">
-              <div style="font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 26px; color: var(--text-accent); line-height: 1;">{{ e.day }}</div>
-              <div style="font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px;">{{ e.monthShort }}</div>
-            </div>
-            <div>
-              <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Tag" tone="{{ e.tone }}" hint-size="auto,24px">{{ e.category }}</x-import>
-              <h4 style="margin: 8px 0 2px; font-family: var(--font-sans); font-weight: 700; font-size: 16px; color: var(--text-strong);">{{ e.title }}</h4>
-              <p style="margin: 0 0 4px; font-size: 13px; color: var(--text-body); line-height: 1.5;">{{ e.description }}</p>
-              <p style="margin: 0; font-size: 13px; color: var(--text-muted);">{{ e.time }} · {{ e.location }}</p>
-            </div>
-            <sc-if value="{{ showBookingCta }}" hint-placeholder-val="{{ true }}">
-              <a href="{{ e.href }}" target="_blank" rel="noopener" style="text-decoration: none;">
-                <x-import component-from-global-scope="BlackHealingCentreDesignSystem_43d3f9.Button" variant="outline" size="sm" hint-size="150px,40px">{{ e.cta }}</x-import>
-              </a>
-            </sc-if>
-          </x-import>
-        </sc-for>
-        <sc-if value="{{ noEvents }}" hint-placeholder-val="{{ false }}">
-          <p style="color: var(--text-muted); font-style: italic; padding: 20px 0;">No events this month. Check back soon.</p>
-        </sc-if>
-      </div>
+      <p style="margin: 16px 0 0; font-size: 14px; color: var(--text-muted); text-align: center;">Calendar not loading? <a href="https://app.arketa.co/blackhealingcentre/calendar" target="_blank" rel="noopener">Open the full schedule →</a></p>
     </div>
   </section>
 
@@ -102,136 +70,9 @@
   &quot;bookingLabel&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Reserve your spot&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Booking&quot;},
   &quot;accentTone&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Terracotta&quot;, &quot;options&quot;: [&quot;Terracotta&quot;, &quot;Fern&quot;, &quot;Sky&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Calendar&quot;}
 }">
-const MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-const MONTH_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-const WEEKDAYS = ["Su","Mo","Tu","We","Th","Fr","Sa"];
-
-const CALENDAR_URL = "https://app.arketa.co/blackhealingcentre/calendar";
-const VENUE = "Black Healing Centre, Montréal";
-
-const RECURRING_SERIES = [
-  { title: "Unleash Your Voice (Level 1)", category: "Workshop", tone: "terracotta", time: "6PM – 9PM", location: VENUE, start: new Date(2026, 8, 21), every: 7, description: "A writing and performing workshop series, Mondays.", regUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeeqamxCSJI_Huc_7II-RgCkpHQQHSeR1lr2_gfeMJ3vkjXvw/viewform" },
-  { title: "Lift Your Voice", category: "Drop-In", tone: "sky", time: "6PM – 8PM", location: VENUE, start: new Date(2026, 8, 16), every: 7, until: new Date(2026, 11, 10), description: "Community choir. Communal singing for connection, joy, and voice.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/3h8R2lZ2OZrKRHcW8m7y", dateUrls: { "9/23": "https://app.arketa.co/blackhealingcentre/checkout/oxlPl2NSZzUp9gg9VFa0", "9/30": "https://app.arketa.co/blackhealingcentre/checkout/qcadrywnsP3NxRcacSBB", "10/7": "https://app.arketa.co/blackhealingcentre/checkout/MIjbbHV2J4tHNXLlWxc3" } },
-  { title: "A Place of Stillness", category: "Drop-In", tone: "sky", time: "6:30PM – 8PM", location: VENUE, start: new Date(2026, 8, 17), every: 7, description: "Community meditation. A non-guided space to ground and reset.", regUrl: "https://www.whenthevillagemeditates.com/event-details/a-place-of-stillness-2026-09-17-18-30" },
-  { title: "Menopausitive Café: Movie Night", category: "Movie Night", tone: "terracotta", time: "6PM – 8PM", location: VENUE, dates: [new Date(2026, 8, 18)], description: "A screening and conversation to open the season.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/qCKeXDTcIG4JFIWl525T" },
-  { title: "Menopausitive Café", category: "Drop-In", tone: "sky", time: "6PM – 8PM", location: VENUE, dates: [new Date(2026, 9, 30), new Date(2026, 10, 27), new Date(2026, 11, 25)], description: "A monthly drop-in gathering to share and be heard, the last Friday of the month.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/qCKeXDTcIG4JFIWl525T" },
-  { title: "Slow Saturdays x Tanja", category: "Drop-In", tone: "sky", time: "10AM – 11AM", location: VENUE, start: new Date(2026, 8, 19), every: 14, description: "Gentle yoga, every other Saturday. Open to all levels.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/3Zvn2eD6o74VM86bKmYG", dateUrls: { "10/3": "https://app.arketa.co/blackhealingcentre/checkout/6GiWznJ2eTb8t8jSJmED" } },
-  { title: "Unleash Your Voice (Level 3)", category: "Workshop", tone: "terracotta", time: "4PM – 7PM", location: VENUE, start: new Date(2026, 8, 26), every: 7, description: "Advanced writing and performing workshop, Saturdays.", regUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeeqamxCSJI_Huc_7II-RgCkpHQQHSeR1lr2_gfeMJ3vkjXvw/viewform" },
-  { title: "Collective Care Circles for Black Women", category: "Community Care", tone: "fern", time: "12PM – 2PM", location: VENUE, start: new Date(2026, 8, 20), every: 7, closed: true, description: "A weekly circle for Black women to process and heal together." },
-  { title: "Entering Silence x When the Village Meditates", category: "Retreat", tone: "sun", time: "All day", location: VENUE, dates: [new Date(2026, 8, 26)], description: "A one-day silent meditation retreat.", regUrl: "https://www.whenthevillagemeditates.com/event-details/entering-silence" },
-  { title: "Sunday Reset x Nadège", category: "Drop-In", tone: "sky", time: "4PM – 5PM", location: VENUE, start: new Date(2026, 8, 27), every: 14, description: "A gentle, restorative practice to close the week. Open to all levels.", regUrl: "https://app.arketa.co/blackhealingcentre/checkout/BEKMumKzx8745gZIZjRN" },
-];
-
-function generateRecurringEvents(series, endDate) {
-  const out = [];
-  const push = (r, d) => {
-    const key = (d.getMonth() + 1) + "/" + d.getDate();
-    const href = (r.dateUrls && r.dateUrls[key]) || r.regUrl || CALENDAR_URL;
-    out.push({ day: d.getDate(), month: d.getMonth() + 1, year: d.getFullYear(), category: r.category, tone: r.tone, title: r.title, time: r.time, location: r.location, description: r.description, closed: !!r.closed, href });
-  };
-  series.forEach((r) => {
-    if (r.dates) { r.dates.forEach((d) => { if (d <= endDate) push(r, d); }); return; }
-    const stop = r.until && r.until < endDate ? r.until : endDate;
-    let d = new Date(r.start);
-    while (d <= stop) {
-      push(r, d);
-      d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + (r.every || 7));
-    }
-  });
-  return out;
-}
-
-const EVENTS = generateRecurringEvents(RECURRING_SERIES, new Date(2026, 11, 31));
-
-function startOfWeek(d) {
-  const r = new Date(d);
-  r.setDate(r.getDate() - r.getDay());
-  r.setHours(0, 0, 0, 0);
-  return r;
-}
-
 class Component extends DCLogic {
-  state = (() => { const t = new Date(); return { month: t.getMonth() + 1, year: t.getFullYear(), weekStart: startOfWeek(t) }; })();
-
-  shiftMonth(delta) {
-    this.setState((s) => {
-      let m = s.month + delta;
-      let y = s.year;
-      if (m < 1) { m = 12; y -= 1; }
-      if (m > 12) { m = 1; y += 1; }
-      return { month: m, year: y };
-    });
-  }
-
-  shiftWeek(delta) {
-    this.setState((s) => {
-      const d = new Date(s.weekStart);
-      d.setDate(d.getDate() + delta * 7);
-      return { weekStart: d };
-    });
-  }
-
   renderVals() {
-    const accentTone = this.props.accentTone ?? "Terracotta";
-    const accentVar = accentTone === "Fern" ? "var(--bhc-fern)" : accentTone === "Sky" ? "var(--bhc-water)" : "var(--bhc-terracotta)";
-    const showBookingCta = this.props.showBookingCta ?? true;
-    const bookingLabel = this.props.bookingLabel ?? "Reserve your spot";
-
-    const { month, year } = this.state;
-    const today = new Date();
-
-    const first = new Date(year, month - 1, 1).getDay();
-    const daysIn = new Date(year, month, 0).getDate();
-    const prevDays = new Date(year, month - 1, 0).getDate();
-
-    const monthEventsRaw = EVENTS.filter((e) => e.month === month && e.year === year).sort((a, b) => a.day - b.day);
-    const eventDays = new Set(monthEventsRaw.map((e) => e.day));
-
-    const { weekStart } = this.state;
-    const weekEnd = new Date(weekStart);
-    weekEnd.setDate(weekEnd.getDate() + 6);
-    const eventDate = (e) => new Date(e.year, e.month - 1, e.day);
-    const weekEventsRaw = EVENTS.filter((e) => {
-      const d = eventDate(e);
-      return d >= weekStart && d <= weekEnd;
-    }).sort((a, b) => eventDate(a) - eventDate(b));
-    const weekLabel = MONTH_SHORT[weekStart.getMonth()] + " " + weekStart.getDate() + " – " + MONTH_SHORT[weekEnd.getMonth()] + " " + weekEnd.getDate() + ", " + weekEnd.getFullYear();
-
-    let cells = [];
-    for (let i = first - 1; i >= 0; i--) cells.push({ d: prevDays - i, other: true });
-    for (let d = 1; d <= daysIn; d++) cells.push({ d, other: false });
-    while (cells.length % 7 !== 0) cells.push({ d: cells.length - daysIn - first + 1, other: true });
-
-    cells = cells.map((c, i) => {
-      const isToday = !c.other && c.d === today.getDate() && month - 1 === today.getMonth() && year === today.getFullYear();
-      const hasEvent = !c.other && eventDays.has(c.d);
-      return {
-        key: i,
-        d: c.d,
-        color: c.other ? "var(--text-muted)" : isToday ? "var(--text-on-dark)" : "var(--text-body)",
-        bg: isToday ? accentVar : "transparent",
-        weight: isToday ? 700 : 400,
-        hasEvent,
-        dotColor: isToday ? "var(--bhc-ivory)" : accentVar,
-      };
-    });
-
-    const weekEvents = weekEventsRaw.map((e) => ({ ...e, monthShort: MONTH_SHORT[e.month - 1], cta: e.closed ? "Closed" : bookingLabel }));
-
-    return {
-      monthLabel: MONTH_NAMES[month - 1] + " " + year,
-      weekdays: WEEKDAYS,
-      cells,
-      weekLabel,
-      monthEvents: weekEvents,
-      noEvents: weekEvents.length === 0,
-      showBookingCta,
-      bookingLabel,
-      prevMonth: () => this.shiftMonth(-1),
-      nextMonth: () => this.shiftMonth(1),
-      prevWeek: () => this.shiftWeek(-1),
-      nextWeek: () => this.shiftWeek(1),
-    };
+    return {};
   }
 }
 </script>
